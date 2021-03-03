@@ -75,10 +75,6 @@ jobs:
         echo -e "\q" | svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lienol ./
         rm -rf .svn
 
-    - name: SSH connection to Actions
-      uses: garypang13/debugger-action@master
-      if: 1 == 0
-
     - name: Modify
       run: |
         rm -Rf */.git */.svn qt5 openwrt-{chinadns*,simple-obfs,v2ray-plugin,fullconenat,dnsforwarder} cups* subweb \
