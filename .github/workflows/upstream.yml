@@ -26,7 +26,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        ref: master
+        ref: main
         fetch-depth: 0
         lfs: true
 
@@ -76,7 +76,7 @@ jobs:
         rm -rf .svn
 
     - name: SSH connection to Actions
-      uses: garypang13/debugger-action@master
+      uses: garypang13/debugger-action@main
       if: 1 == 0
 
     - name: Modify
