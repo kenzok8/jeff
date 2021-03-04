@@ -86,16 +86,16 @@ define Package/$(PKG_NAME)
   TITLE:=LuCI support for PassWall
   PKGARCH:=all
   DEPENDS:=+libmbedtls +iptables-mod-tproxy +ip +ipset +coreutils +coreutils-base64 +coreutils-nohup +luci-lib-jsonc \
-  +curl +ca-bundle +resolveip +unzip +dnsmasq-full +tcping +libuci-lua \
+  +curl +ca-certificates +resolveip +unzip +dnsmasq-full +tcping +libuci-lua \
   +ipt2socks \
   +microsocks \
   +pdnsd-alt \
   +PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks:shadowsocks-libev-ss-redir \
   +PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks:shadowsocks-libev-ss-local \
   +PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Server:shadowsocks-libev-ss-server \
-  +PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR:shadowsocksr-libev-ssr-redir \
+  +PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR:shadowsocksr-libev-alt \
   +PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR:shadowsocksr-libev-ssr-local \
-  +PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Server:shadowsocksr-libev-ssr-server \
+  +PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Server:shadowsocksr-libev-server \
   +PACKAGE_$(PKG_NAME)_INCLUDE_Xray:xray-core \
   +PACKAGE_$(PKG_NAME)_INCLUDE_Xray:xray-geodata \
   +PACKAGE_$(PKG_NAME)_INCLUDE_Trojan_Plus:trojan-plus \
@@ -153,7 +153,7 @@ define Package/$(PKG_NAME)/install
 	cp -pR ./luasrc/* $(1)/usr/lib/lua/luci/
 	
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
-	po2lmo ./po/zh_Hans/passwall.po $(1)/usr/lib/lua/luci/i18n/passwall.zh-cn.lmo
+	po2lmo ./po/zh-cn/passwall.po $(1)/usr/lib/lua/luci/i18n/passwall.zh-cn.lmo
 endef
 
 define Package/$(PKG_NAME)/postinst
